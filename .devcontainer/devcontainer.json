@@ -1,0 +1,25 @@
+{
+    "name": "Zephyr Development",
+    "image": "ghcr.io/zephyrproject-rtos/zephyr-build:latest",
+    "workspaceMount": "source=${localWorkspaceFolder},target=/workdir,type=bind",
+    "workspaceFolder": "/workdir",
+    "customizations": {
+        "vscode": {
+            "extensions": [
+                "ms-vscode.cpptools",
+                "ms-vscode.cmake-tools",
+                "twxs.cmake",
+                "spencerwmiles.vscode-task-buttons",
+                "llvm-vs-code-extensions.vscode-clangd",
+                "GitHub.copilot",
+                "GitHub.copilot-chat"
+            ],
+			"settings": {
+                "terminal.integrated.shell.linux": "/bin/bash",
+				"terminal.integrated.shell.osx": "/bin/bash"
+            }
+        }
+    },
+    "remoteUser": "user",
+    "postCreateCommand": "if [ ! -d .west ]; then west init -m https://github.com/ttwards/motor --mr master .; fi && west update && west zephyr-export && pip install -r ./zephyr/scripts/requirements.txt && west sdk install",
+}

@@ -1,0 +1,15 @@
+{
+    "folders": [
+        {
+            "name": "Zephyr Root",
+            "path": "/workdir"
+        },
+        {
+            "name": "Motor Project",
+            "path": "/workdir/motor"
+        }
+    ],
+    "settings": {
+        "terminal.integrated.shell.linux": "/bin/bash"
+    }
+}
